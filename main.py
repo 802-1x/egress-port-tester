@@ -21,3 +21,7 @@ def main():
 
     for port in ports:
         egress_tester(host, port)
+
+if __name__ == "__main__":
+    print("Starting the port testing script...")
+    main()
