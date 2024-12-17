@@ -1,4 +1,5 @@
 import socket
+import sys
 
 def egress_tester(host, port):
     print(f"Starting connection test for {host} on port {port}...")
@@ -16,8 +17,19 @@ def egress_tester(host, port):
         return False
 
 def main():
+    # Default host and ports
     host = "portquiz.net"
-    ports = [80,445]
+    ports = [21, 22, 23, 25, 53, 80, 443, 445, 3389]
+
+    # Check if command-line arguments are provided
+    if len(sys.argv) > 1:
+        try:
+            ports = [int(port) for port in sys.argv[1:]]
+        except ValueError:
+            print("Invalid port number provided. Please enter valid integers.")
+            return
+    else:
+        ports = default_ports
 
     for port in ports:
         egress_tester(host, port)
