@@ -4,4 +4,5 @@ The script is designed to test egress (outbound) network connectivity by attempt
 
 ## Tasks
 - [x] Add command-line arguments
+- [ ] Compile using Nuitka
 - [ ] General review and expansion
